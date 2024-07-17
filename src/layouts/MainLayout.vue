@@ -1,4 +1,5 @@
 <script setup>
+import { mdiAccount, mdiMenu } from '@quasar/extras/mdi-v7'
 import { ref } from 'vue'
 
 const leftDrawerOpen = ref(false)
@@ -19,7 +20,7 @@ function toggleLeftDrawer () {
           dense
           flat
           round
-          icon="menu"
+          :icon="mdiMenu"
           @click="toggleLeftDrawer"
         />
 
@@ -49,7 +50,7 @@ function toggleLeftDrawer () {
       <q-toolbar class="flex-center">
         <q-btn
           flat
-          icon="person"
+          :icon="mdiAccount"
           size="lg"
         />
       </q-toolbar>

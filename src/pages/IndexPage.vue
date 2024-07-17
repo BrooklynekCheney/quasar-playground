@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { friends } from './friends'
+import { mdiBookAlphabet } from '@quasar/extras/mdi-v7'
 
 const columns = [
   {
@@ -24,7 +25,11 @@ const tableComponent = ref()
 
 <template>
   <q-page class="flex flex-center">
-    <pre>{{ tableComponent?.filteredSortedRows }}</pre>
+    <q-icon
+      :name="mdiBookAlphabet"
+      size="5em"
+      color="blue-9"
+    />
 
     <q-table
       ref="tableComponent"
