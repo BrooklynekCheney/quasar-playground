@@ -7,7 +7,8 @@ const columns = [
     name: 'name',
     field: 'name',
     label: 'Name',
-    align: 'left'
+    align: 'left',
+    sortable: true
   },
   {
     name: 'email',
@@ -18,16 +19,15 @@ const columns = [
 ]
 
 const fullscreen = ref(false)
+const tableComponent = ref()
 </script>
 
 <template>
   <q-page class="flex flex-center">
-    <q-btn
-      label="Fullscreen"
-      @click="fullscreen = !fullscreen"
-    />
+    <pre>{{ tableComponent?.filteredSortedRows }}</pre>
 
     <q-table
+      ref="tableComponent"
       v-model:fullscreen="fullscreen"
       :columns
       :rows="friends"
@@ -36,7 +36,15 @@ const fullscreen = ref(false)
       flat
       bordered
       square
+      :rows-per-page-options="[2]"
       @row-click="(_evt, row) => console.log(row)"
-    />
+    >
+      <template #top-right>
+        <q-btn
+          label="Fullscreen"
+          @click="tableComponent.toggleFullscreen()"
+        />
+      </template>
+    </q-table>
   </q-page>
 </template>
