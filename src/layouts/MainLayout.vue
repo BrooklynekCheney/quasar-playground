@@ -36,7 +36,25 @@ function toggleLeftDrawer () {
       side="left"
       bordered
     >
-      <!-- drawer content -->
+      <q-list>
+        <q-item
+          exact
+          :to="{ name: 'home' }"
+        >
+          <q-item-section>
+            Home
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          exact
+          :to="{ name: 'friends' }"
+        >
+          <q-item-section>
+            Friends
+          </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-page-container>
