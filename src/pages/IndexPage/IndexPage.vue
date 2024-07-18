@@ -34,25 +34,39 @@ const showCreateDialog = ref(false)
 </script>
 
 <template>
-  <q-page class="row flex-center">
-    <h2 class="text-weight-bolder full-width text-center">
-      Lorem ipsum
-    </h2>
+  <q-page class="row q-col-gutter-xl">
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <q-card>
+        <q-card-section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, mollitia! Impedit cumque doloremque quo eius. Cumque impedit dignissimos sed dolorem adipisci quisquam earum vitae amet, hic distinctio dolores, quae ipsa?
+        </q-card-section>
+      </q-card>
+    </div>
 
-    <q-table
-      :columns
-      :rows="Object.values(friends)"
-      title="Friends"
-    >
-      <template #top-right>
-        <q-btn
-          :icon="mdiPlus"
-          round
-          color="primary"
-          @click="showCreateDialog = true"
-        />
-      </template>
-    </q-table>
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+      <q-table
+        :columns
+        :rows="Object.values(friends)"
+        title="Friends"
+      >
+        <template #top-right>
+          <q-btn
+            :icon="mdiPlus"
+            round
+            color="primary"
+            @click="showCreateDialog = true"
+          />
+        </template>
+      </q-table>
+    </div>
+
+    <div class="col-xs-12 col-lg-4">
+      <q-card>
+        <q-card-section>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, mollitia! Impedit cumque doloremque quo eius. Cumque impedit dignissimos sed dolorem adipisci quisquam earum vitae amet, hic distinctio dolores, quae ipsa?
+        </q-card-section>
+      </q-card>
+    </div>
 
     <CreateFriendDialog
       v-model="showCreateDialog"
