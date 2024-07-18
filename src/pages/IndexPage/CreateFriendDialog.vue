@@ -1,7 +1,16 @@
 <script setup>
+import { isEmail } from 'validator'
+import { ref } from 'vue'
+
 const form = defineModel('form', { type: Object })
 
 const emit = defineEmits(['create'])
+
+const formComponent = ref()
+async function submitForm () {
+  const isValid = await formComponent.value.validate()
+  if (isValid) emit('create')
+}
 </script>
 
 <template>
@@ -9,20 +18,25 @@ const emit = defineEmits(['create'])
     <q-card>
       <q-card-section>
         <q-form
+          ref="formComponent"
           class="q-gutter-y-md"
-          @submit="emit('create')"
+          @submit="submitForm()"
         >
           <!-- name: text input -->
           <q-input
             v-model="form.name"
             label="Name"
             filled
+            lazy-rules
+            :rules="[val => val?.length > 2 || 'Name must be at least 3 characters long']"
           />
           <!-- email: text input -->
           <q-input
             v-model="form.email"
             label="Email"
             filled
+            lazy-rules
+            :rules="[val => isEmail(val ?? '') || 'Please enter a valid email']"
           />
           <!-- age: number input -->
           <q-input
@@ -40,6 +54,8 @@ const emit = defineEmits(['create'])
           <q-select
             v-model="form.operating_system"
             outlined
+            lazy-rules
+            :rules="[val => ['Windows', 'Mac', 'Linux'].includes(val) || 'Please select a valid OS']"
             :options="['Windows', 'Mac', 'Linux']"
           />
           <!-- color: color picker -->
