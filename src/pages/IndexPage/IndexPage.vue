@@ -35,6 +35,10 @@ const showCreateDialog = ref(false)
 
 <template>
   <q-page class="row flex-center">
+    <h2 class="text-weight-bolder full-width text-center">
+      Lorem ipsum
+    </h2>
+
     <q-table
       :columns
       :rows="Object.values(friends)"
