@@ -4,8 +4,7 @@ import { useLocalStorage } from '@vueuse/core'
 import { uid } from 'quasar'
 import { mdiPlus } from '@quasar/extras/mdi-v7'
 import CreateFriendDialog from './CreateFriendDialog.vue'
-import wretch from 'wretch'
-import { api } from 'src/boot/wretch'
+import { useI18n } from 'vue-i18n'
 
 const columns = [
   {
@@ -34,22 +33,24 @@ function createFriend () {
 
 const showCreateDialog = ref(false)
 
-async function fetchPosts () {
-  api.get('posts')
-}
+const { locale, t } = useI18n()
 </script>
 
 <template>
   <q-page class="row q-col-gutter-xl">
     <div class="col-xs-12 col-sm-6 col-lg-4">
-      <q-btn
-        label="posts"
-        @click="fetchPosts()"
+      <q-select
+        v-model="locale"
+        :options="['en-US', 'de']"
+        label="language"
+        filled
+        class="q-ma-lg"
       />
+
       <q-table
         :columns
         :rows="Object.values(friends)"
-        title="Friends"
+        :title="t('friends.tableTitle')"
       >
         <template #top-right>
           <q-btn
