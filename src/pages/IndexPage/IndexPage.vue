@@ -4,6 +4,8 @@ import { useLocalStorage } from '@vueuse/core'
 import { uid } from 'quasar'
 import { mdiPlus } from '@quasar/extras/mdi-v7'
 import CreateFriendDialog from './CreateFriendDialog.vue'
+import wretch from 'wretch'
+import { api } from 'src/boot/wretch'
 
 const columns = [
   {
@@ -31,11 +33,19 @@ function createFriend () {
 }
 
 const showCreateDialog = ref(false)
+
+async function fetchPosts () {
+  api.get('posts')
+}
 </script>
 
 <template>
   <q-page class="row q-col-gutter-xl">
     <div class="col-xs-12 col-sm-6 col-lg-4">
+      <q-btn
+        label="posts"
+        @click="fetchPosts()"
+      />
       <q-table
         :columns
         :rows="Object.values(friends)"
@@ -50,32 +60,6 @@ const showCreateDialog = ref(false)
           />
         </template>
       </q-table>
-    </div>
-
-    <div class="col-12">
-      <!-- q-m -->
-      <!-- t|r|b|l|x|y|a q-ma -->
-      <!-- xs|sm|md|lg|xl q-ma-lg -->
-      <div
-        class="q-pa-lg q-ma-xl shadow-3 rounded-borders relative-position some-card scroll"
-        style="height: 400px"
-      >
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
-        </div>
-        <q-btn
-          :icon="mdiPlus"
-          color="blue"
-          class="full-width"
-        />
-      </div>
     </div>
 
     <CreateFriendDialog
