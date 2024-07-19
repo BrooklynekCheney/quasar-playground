@@ -36,14 +36,6 @@ const showCreateDialog = ref(false)
 <template>
   <q-page class="row q-col-gutter-xl">
     <div class="col-xs-12 col-sm-6 col-lg-4">
-      <q-card>
-        <q-card-section>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, mollitia! Impedit cumque doloremque quo eius. Cumque impedit dignissimos sed dolorem adipisci quisquam earum vitae amet, hic distinctio dolores, quae ipsa?
-        </q-card-section>
-      </q-card>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 col-lg-4">
       <q-table
         :columns
         :rows="Object.values(friends)"
@@ -60,12 +52,30 @@ const showCreateDialog = ref(false)
       </q-table>
     </div>
 
-    <div class="col-xs-12 col-lg-4">
-      <q-card>
-        <q-card-section>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, mollitia! Impedit cumque doloremque quo eius. Cumque impedit dignissimos sed dolorem adipisci quisquam earum vitae amet, hic distinctio dolores, quae ipsa?
-        </q-card-section>
-      </q-card>
+    <div class="col-12">
+      <!-- q-m -->
+      <!-- t|r|b|l|x|y|a q-ma -->
+      <!-- xs|sm|md|lg|xl q-ma-lg -->
+      <div
+        class="q-pa-lg q-ma-xl shadow-3 rounded-borders relative-position some-card scroll"
+        style="height: 400px"
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sapiente aperiam animi quasi facilis voluptates quos, ratione eius dolor dolorem culpa sit fugit voluptate a aspernatur voluptatibus unde, amet magni!
+        </div>
+        <q-btn
+          :icon="mdiPlus"
+          color="blue"
+          class="full-width"
+        />
+      </div>
     </div>
 
     <CreateFriendDialog
