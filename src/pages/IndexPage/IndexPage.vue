@@ -39,6 +39,10 @@ const { locale, t } = useI18n()
 <template>
   <q-page class="row q-col-gutter-xl">
     <div class="col-xs-12 col-sm-6 col-lg-4">
+      <h1 class="text-3xl font-bold underline">
+        Hello world!
+      </h1>
+
       <q-select
         v-model="locale"
         :options="['en-US', 'de']"
