@@ -44,7 +44,7 @@ const { locale, t } = useI18n()
         :options="['en-US', 'de']"
         label="language"
         filled
-        class="q-ma-lg"
+        class="ma-lg op40"
       />
 
       <q-table
