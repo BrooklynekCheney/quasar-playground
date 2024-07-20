@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain, Notification } from 'electron'
 import path from 'node:path'
 import os from 'node:os'
 import { fileURLToPath } from 'node:url'
@@ -63,3 +63,10 @@ app.on('activate', () => {
     createWindow()
   }
 })
+// expose logic (dangerous)
+function showNotification (_event, { title, body }) {
+  const notification = new Notification({ title, body })
+  notification.show()
+}
+
+ipcMain.handle('notification:show', showNotification)

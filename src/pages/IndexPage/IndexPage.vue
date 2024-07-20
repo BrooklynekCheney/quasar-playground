@@ -77,6 +77,19 @@ function friendIsClose (friend) {
       return result.device.deviceId === friend.deviceId
     })
 }
+
+// window.notification.show({
+//   title: 'Hello VueSchool!',
+//   body: 'Nice to meet you from inside Lukes computer!'
+// })
+
+const notification = new Notification(
+  'Hello VueSchool!',
+  {
+    body: 'Nice to meet you from inside Lukes computer!',
+    icon: 'https://picsum.photos/100'
+  }
+)
 </script>
 
 <template>
@@ -133,3 +146,4 @@ function friendIsClose (friend) {
     />
   </q-page>
 </template>
+<!-- use bridge to talk to main -->

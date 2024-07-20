@@ -27,3 +27,12 @@
  *   }
  * }
  */
+
+const { contextBridge, ipcRenderer } = require('electron')
+
+// bridge between main and web app
+contextBridge.exposeInMainWorld('notification', {
+  show: ({ title, body }) => {
+    ipcRenderer.invoke('notification:show', { title, body })
+  }
+})
