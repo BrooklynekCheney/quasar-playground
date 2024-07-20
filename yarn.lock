@@ -319,6 +319,13 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+"@capacitor-community/bluetooth-le@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-6.0.0.tgz#1ef3c1600ad9b76718150bae4a1adebf8c0a9dc6"
+  integrity sha512-oMVqMSQ5w05odnc8Dq+OGgsFGbxolohB6XfcyjOP/8s5htckksjsApcbbyVvcyWkWHr4CU6YCA9cwhSHH3rQYg==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.20"
+
 "@electron/get@^2.0.0":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@electron/get/-/get-2.0.3.tgz#fba552683d387aebd9f3fcadbcafc8e12ee4f960"

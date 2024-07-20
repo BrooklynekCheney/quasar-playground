@@ -54,6 +54,15 @@ function toggleLeftDrawer () {
             Friends
           </q-item-section>
         </q-item>
+
+        <q-item
+          exact
+          :to="{ name: 'scan' }"
+        >
+          <q-item-section>
+            Scan For Friends
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 

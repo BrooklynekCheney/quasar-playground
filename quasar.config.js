@@ -67,7 +67,7 @@ export default configure((ctx) => {
       // viteVuePluginOptions: {},
 
       vitePlugins: [
-        ['unocss/vite', {}],
+        // ['unocss/vite', {}],
         ['@intlify/unplugin-vue-i18n/vite', {
           // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
           // compositionOnly: false,

@@ -12,6 +12,11 @@ const routes = [
         path: 'friends',
         name: 'friends',
         component: () => import('pages/FriendsPage.vue')
+      },
+      {
+        path: 'scan',
+        name: 'scan',
+        component: () => import('pages/ScanPage/ScanPage.vue')
       }
     ]
   },
