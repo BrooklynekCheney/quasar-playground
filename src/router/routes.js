@@ -17,6 +17,11 @@ const routes = [
         path: 'scan',
         name: 'scan',
         component: () => import('pages/ScanPage/ScanPage.vue')
+      },
+      {
+        path: 'geolocation',
+        name: 'geolocation',
+        component: () => import('pages/GeolocationPage.vue')
       }
     ]
   },

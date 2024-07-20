@@ -113,7 +113,9 @@ export default configure((ctx) => {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [
+
+      ]
     },
 
     // animations: 'all', // --- includes all animations
