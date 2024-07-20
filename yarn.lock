@@ -326,6 +326,13 @@
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
+"@capacitor/core@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-6.1.1.tgz#7bdf19a28a9f345a2f31179264b6de2bd9de29cb"
+  integrity sha512-b1s4WDMy3Y1/owTG2/XNGCI6G5SDpF2NT1JMAgcShue13fiAuHA+Ans7Wfei6McvR0KdopAE6tMHmDAfL5PM8Q==
+  dependencies:
+    tslib "^2.1.0"
+
 "@electron/get@^2.0.0":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@electron/get/-/get-2.0.3.tgz#fba552683d387aebd9f3fcadbcafc8e12ee4f960"

@@ -1,5 +1,6 @@
 <script setup>
 import { mdiRefresh } from '@quasar/extras/mdi-v7'
+import { useLocalStorage } from '@vueuse/core'
 import { useBluetoothScanner } from 'src/composables/useBluetoothScanner'
 
 const {
@@ -7,6 +8,8 @@ const {
   scanResults,
   scanning
 } = useBluetoothScanner()
+
+const friends = useLocalStorage('friends', {})
 </script>
 
 <template>
@@ -29,7 +32,38 @@ const {
       </q-toolbar>
 
       <q-list>
-        <pre>{{ scanResults }}</pre>
+        <q-item
+          v-for="result in scanResults"
+          :key="result.device.deviceId"
+        >
+          <q-menu auto-close>
+            <q-list>
+              <q-item
+                v-for="friend in Object.values(friends)"
+                :key="friend.id"
+                clickable
+                @click="friends[friend.id].deviceId = result.device.deviceId"
+              >
+                <q-item-section>
+                  {{ friend.name }}
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+
+          <q-item-section>
+            <q-item-label>
+              {{ result.device.deviceId }}
+            </q-item-label>
+
+            <q-item-label
+              v-if="result.device.name ?? result.localName"
+              caption
+            >
+              {{ result.device.name ?? result.localName }}
+            </q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-card>
   </q-page>
