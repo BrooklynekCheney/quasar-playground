@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
-import { uid } from 'quasar'
+import { Dialog, Loading, Notify, uid } from 'quasar'
 import { mdiCheck, mdiClose, mdiPlus, mdiRefresh } from '@quasar/extras/mdi-v7'
 import CreateFriendDialog from './CreateFriendDialog.vue'
 import { useI18n } from 'vue-i18n'
@@ -28,14 +28,41 @@ const columns = [
   }
 ]
 const friends = useLocalStorage('friends', {})
-const form = ref({})
+const form = ref({
+  name: 'Johathan',
+  email: 'john@athan.com',
+  age: 62,
+  is_human: true,
+  operating_system: 'Linux'
+})
 
 function createFriend () {
-  const id = uid()
-  form.value.id = id
-  friends.value[id] = form.value
-  showCreateDialog.value = false
-  form.value = {}
+  Dialog.create({
+    title: 'Are You Sure?',
+    message: `Is ${form.value.name} REALLY your friend?`,
+    ok: { label: 'Yea, For Sure!' },
+    cancel: { label: "Hmmm, I'll think on it...", flat: true }
+  }).onOk(() => {
+    Loading.show()
+
+    setTimeout(() => {
+      const id = uid()
+      form.value.id = id
+      friends.value[id] = form.value
+      showCreateDialog.value = false
+      form.value = {}
+
+      Loading.hide()
+
+      Notify.create({
+        message: 'Friend Created!',
+        color: 'positive',
+        icon: mdiPlus
+      })
+    }, 5_000)
+  }).onCancel(() => {
+    showCreateDialog.value = false
+  })
 }
 
 const showCreateDialog = ref(false)
