@@ -1,5 +1,6 @@
 <script setup>
-import { mdiAccount, mdiMenu } from '@quasar/extras/mdi-v7'
+import { mdiAccount, mdiLogout, mdiMenu } from '@quasar/extras/mdi-v7'
+import { useMsal } from 'src/stores/useMsal'
 import { ref } from 'vue'
 
 const leftDrawerOpen = ref(false)
@@ -7,6 +8,8 @@ const leftDrawerOpen = ref(false)
 function toggleLeftDrawer () {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
+
+const msal = useMsal()
 </script>
 
 <template>
@@ -27,6 +30,14 @@ function toggleLeftDrawer () {
         <q-toolbar-title>
           Quasar Playground
         </q-toolbar-title>
+
+        <q-btn
+          :icon="mdiLogout"
+          round
+          flat
+          :loading="msal.loggingOut"
+          @click="msal.logout()"
+        />
       </q-toolbar>
     </q-header>
 
@@ -93,3 +104,8 @@ function toggleLeftDrawer () {
     </q-footer>
   </q-layout>
 </template>
+
+<!-- routes -->
+<!-- boot -->
+<!-- App.vue -->
+<!-- prefetch -->
