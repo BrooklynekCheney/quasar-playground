@@ -1,5 +1,16 @@
 const routes = [
   {
+    path: '/rampage',
+    component: () => import('layouts/RampageLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'rampage',
+        component: () => import('pages/RampagePage.vue')
+      }
+    ]
+  },
+  {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
