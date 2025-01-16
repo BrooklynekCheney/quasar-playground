@@ -21,6 +21,7 @@ export function useBluetoothScanner () {
       await BleClient.stopLEScan()
       scanning.value = false
     }, 7_000)
+    scan()
   }
 
   return {
