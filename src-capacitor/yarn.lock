@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@capacitor-community/bluetooth-le@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-6.0.0.tgz#1ef3c1600ad9b76718150bae4a1adebf8c0a9dc6"
-  integrity sha512-oMVqMSQ5w05odnc8Dq+OGgsFGbxolohB6XfcyjOP/8s5htckksjsApcbbyVvcyWkWHr4CU6YCA9cwhSHH3rQYg==
+"@capacitor-community/bluetooth-le@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-6.1.0.tgz#dba54cdfa137077d2162f702bf6ea1a1cef749d4"
+  integrity sha512-hnNChEwV+xNOVqDYI4bfkQtFtvEyzBMlgYs+6xsLYTJVl0v8h6Hn3nCwjW9l6LH0tMzYaRYlFLCiGHKPHt1N0Q==
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
